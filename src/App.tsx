@@ -1,4 +1,5 @@
 import './style/App.css'
+import {useState} from "react";
 
 
 //인터페이스 타입
@@ -24,6 +25,16 @@ const Greeting: React.FC<GreetingProps> = ({ name, age }) => (
     </div>
 )
 
+//상태관리
+const Counter:React.FC = () => {
+  const [count,setCount] = useState<number>(0);
+  return(
+      <div>
+        <h2>Counter {count}</h2>
+        <button onClick={() => setCount(count+1)}>++</button>
+      </div>
+  )
+}
 
 
 function App() {
@@ -54,6 +65,8 @@ function App() {
 
         <Button text="하이하이" onClick={consoles}/>
         <Greeting name="JIHEE" age={28}/>
+
+        <Counter/>
       </div>
   )
 }
