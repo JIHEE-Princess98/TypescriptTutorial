@@ -13,7 +13,7 @@ export const FetchData: React.FC = () => {
     return (
         <div>
             {
-                data?.map((user) => (
+                data?.map((user: any) => (
                     <li key={user.id}>{user.name}</li>
                 ))
             }

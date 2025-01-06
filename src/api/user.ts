@@ -1,12 +1,9 @@
+import {axiosInstance} from "../config/axios.ts";
 
-interface User{
-    id: number,
-    name: string,
-    email: string
-}
-
-export const fetchUser = async ():Promise<User[]> => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    if(!response.ok) throw new Error('error');
-    return response.json();
+export const fetchUser = async () => {
+    const response = await axiosInstance.get('/users');
+    if(!response.data){
+        throw new Error('No data Found');
+    }
+    return response.data;
 }
